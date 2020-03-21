@@ -6,6 +6,8 @@ var computers_choice;
 var players_choice;
 var message_area = document.getElementById('game_area');
 var clearArea = false;
+var game_area = document.getElementById('game_area').style.color = "lightblue";
+
 document.getElementById('playGame').addEventListener("click", runGame);
 
 // game logic
@@ -86,13 +88,14 @@ function runGame() {
 
     function invalid(){
         if((players_choice !== computers_choice) && (players_choice !== 'rock')
-         && (players_choice !== 'paper') (players_choice !== 'scissors')){
+         && (players_choice !== 'paper') (players_choice !== 'scissors'))
+        {
             message_area.innerHTML+= "Well that's not a valid choice. <br />";
         clearArea = true;
         }
     }
 
-    ckeckStatus();
+    checkStatus();
 }
 
 
@@ -127,6 +130,8 @@ function showWinloseMessage(status) {
     message_area.innerHTML+= "***** <br />";
     clearArea = true;
 }
+
+
 
 
 
