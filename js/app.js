@@ -58,11 +58,27 @@ function runGame() {
     //checkStatus();
 //}
 
-    choice();
-    rock();
-    paper();
-    scissors();
-    invalid();
+    checkChoices();
+
+    function checkChoices(){
+
+        if (players_choice == computers_choice) {
+        choice();
+    } else if (players_choice == 'rock') {
+        rock();
+        
+    } else if (players_choice == 'paper') {
+        paper();
+        
+    } else if (players_choice == 'scissors') {
+        scissors();
+        
+    } else {
+        invalid();
+        
+    }
+
+    }
 
     function choice(){
         if (players_choice == computers_choice) {
@@ -87,25 +103,32 @@ function runGame() {
 }
 
     function invalid(){
-        if((players_choice !== computers_choice) && (players_choice !== 'rock')
-         && (players_choice !== 'paper') (players_choice !== 'scissors'))
-        {
-            message_area.innerHTML+= "Well that's not a valid choice. <br />";
+         message_area.innerHTML+= "Well that's not a valid choice. <br />";
         clearArea = true;
         }
-    }
 
     checkStatus();
 }
 
+changeh1color();
 
+function changeh1color(){
+    document.getElementById("myH2").style.color = "#0F5298";
+    document.getElementById("myH2").style.textDecoration = "underline overline";
+}
+
+changeBackgroundcolor();
+
+function changeBackgroundcolor() {
+    document.body.style.background = "#3C99DC";
+}
 // checks whether computer wins against player choice
 function checkComputerWins(validateChoice, winMessage, loseMessage) {
     if (computers_choice == validateChoice) {
-        message_area.innerHTML += 'You lose! ' + computers_choice + ' ' + winMessage + ' ' + players_choice + '<br />';
+        message_area.innerHTML += 'You lose! x__x ' + computers_choice + ' ' + winMessage + ' ' + players_choice + '<br />';
         player_lives--;
     } else {
-        message_area.innerHTML += 'You win! ' + players_choice + ' ' + loseMessage + ' ' + computers_choice + '<br />';
+        message_area.innerHTML += 'You win! o__o ' + players_choice + ' ' + loseMessage + ' ' + computers_choice + '<br />';
         computer_lives--;
     }
 }
